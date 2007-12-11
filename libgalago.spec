@@ -61,7 +61,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %name.lang
 %defattr(-,root,root)
-%doc AUTHORS ChangeLog NEWS
+%doc AUTHORS NEWS
 
 %files -n %libname
 %defattr(-,root,root)
@@ -69,6 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %libname-devel
 %defattr(-,root,root)
+%doc ChangeLog 
 %_libdir/lib*.so
 %attr(644,root,root) %_libdir/lib*a
 %_libdir/pkgconfig/libgalago.pc
