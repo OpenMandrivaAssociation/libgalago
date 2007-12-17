@@ -12,7 +12,6 @@ Source0: http://www.galago-project.org/files/releases/source/libgalago/%{name}-%
 License: LGPL
 Group: System/Libraries
 Url: http://www.galago-project.org/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: dbus-glib-devel
 BuildRequires: gtk-doc
 
