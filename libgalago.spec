@@ -1,6 +1,6 @@
 %define name libgalago
 %define version 0.5.2
-%define release %mkrel 5
+%define release %mkrel 6
 %define major 3
 %define libname %mklibname galago %major
 
