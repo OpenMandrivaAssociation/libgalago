@@ -1,13 +1,11 @@
-%define name libgalago
-%define version 0.5.2
-%define release %mkrel 7
 %define major 3
 %define libname %mklibname galago %major
+%define develname %mklibname galago -d
 
 Summary: Base library of Galago 
-Name: %{name}
-Version: %{version}
-Release: %{release}
+Name: libgalago
+Version: 0.5.2
+Release: %mkrel 8
 Source0: http://www.galago-project.org/files/releases/source/libgalago/%{name}-%{version}.tar.bz2
 License: LGPL
 Group: System/Libraries
@@ -31,20 +29,22 @@ Provides: galago%major = %version-%release
 %description -n %libname
 This is the base library of the Galago desktop presence framework.
 
-%package -n %libname-devel
+%package -n %develname
 Group: Development/C
 Summary: Base library of Galago - headers
-Requires: %libname = %version
+Requires: %libname = %version-%release
 Provides: %name-devel = %version-%release
+Provides: galago-devel = %version-%release
+Obsoletes: %mklibname galago 3 -d
 
-%description -n %libname-devel
+%description -n %develname
 This is the base library of the Galago desktop presence framework.
 
 %prep
 %setup -q
 
 %build
-%configure2_5x
+%configure2_5x --disable-static
 %make
 
 %install
@@ -71,11 +71,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %_libdir/lib*.so.%{major}*
 
-%files -n %libname-devel
+%files -n %develname
 %defattr(-,root,root)
 %doc ChangeLog 
 %_libdir/lib*.so
-%attr(644,root,root) %_libdir/lib*a
+%attr(644,root,root) %_libdir/lib*.la
 %_libdir/pkgconfig/libgalago.pc
 %_includedir/%name/
 %_datadir/gtk-doc/html/libgalago
