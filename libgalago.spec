@@ -56,13 +56,6 @@ rm -rf %buildroot%_datadir/autopackage
 %clean
 rm -rf %{buildroot}
 
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
-
 %files -f %name.lang
 %defattr(-,root,root)
 %doc AUTHORS NEWS
@@ -75,7 +68,6 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc ChangeLog 
 %_libdir/lib*.so
-%attr(644,root,root) %_libdir/lib*.la
 %_libdir/pkgconfig/libgalago.pc
 %_includedir/%name/
 %_datadir/gtk-doc/html/libgalago
