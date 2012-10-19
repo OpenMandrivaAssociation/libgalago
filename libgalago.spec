@@ -5,12 +5,11 @@
 Summary: Base library of Galago 
 Name: libgalago
 Version: 0.5.2
-Release: %mkrel 12
+Release: 1
 Source0: http://www.galago-project.org/files/releases/source/libgalago/%{name}-%{version}.tar.bz2
 License: LGPL
 Group: System/Libraries
 Url: http://www.galago-project.org/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: dbus-glib-devel
 BuildRequires: gtk-doc
 
@@ -53,24 +52,16 @@ rm -rf %{buildroot} %name.lang
 rm -rf %buildroot%_datadir/autopackage
 %find_lang %name
 
-%clean
-rm -rf %{buildroot}
-
 %files -f %name.lang
-%defattr(-,root,root)
 %doc AUTHORS NEWS
 
 %files -n %libname
-%defattr(-,root,root)
 %_libdir/lib*.so.%{major}*
 
 %files -n %develname
-%defattr(-,root,root)
 %doc ChangeLog 
 %_libdir/lib*.so
 %_libdir/pkgconfig/libgalago.pc
 %_includedir/%name/
 %_datadir/gtk-doc/html/libgalago
-
-
 
