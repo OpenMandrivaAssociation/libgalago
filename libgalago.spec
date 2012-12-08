@@ -10,7 +10,7 @@ Source0: http://www.galago-project.org/files/releases/source/libgalago/%{name}-%
 License: LGPL
 Group: System/Libraries
 Url: http://www.galago-project.org/
-BuildRequires: dbus-glib-devel
+BuildRequires: pkgconfig(dbus-glib-1)
 BuildRequires: gtk-doc
 
 
