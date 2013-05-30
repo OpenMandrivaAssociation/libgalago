@@ -1,42 +1,39 @@
-%define major 3
-%define libname %mklibname galago %major
-%define develname %mklibname galago -d
+%define major	3
+%define libname	%mklibname galago %{major}
+%define devname	%mklibname galago -d
 
-Summary: Base library of Galago 
-Name: libgalago
-Version: 0.5.2
-Release: 1
-Source0: http://www.galago-project.org/files/releases/source/libgalago/%{name}-%{version}.tar.bz2
-License: LGPL
-Group: System/Libraries
-Url: http://www.galago-project.org/
-BuildRequires: pkgconfig(dbus-glib-1)
-BuildRequires: gtk-doc
-
+Summary:	Base library of Galago 
+Name:		libgalago
+Version:	0.5.2
+Release:	1
+License:	LGPLv2
+Group:		System/Libraries
+Url:		http://www.galago-project.org/
+Source0:	http://www.galago-project.org/files/releases/source/libgalago/%{name}-%{version}.tar.bz2
+BuildRequires:	gtk-doc
+BuildRequires:	pkgconfig(dbus-glib-1)
 
 %description
 This is the base library of the Galago desktop presence framework.
 
-%package -n %libname
-Group: System/Libraries
-Summary: Base library of Galago - shared library
+%package -n %{libname}
+Summary:	Base library of Galago - shared library
+Group:		System/Libraries
 #gw for the translations
-Requires: %name >= %version
+Requires:	%{name} >= %{version}
 #gw for the sharp bindings
-Provides: galago%major = %version-%release
+Provides:	galago%{major} = %{version}-%{release}
 
-%description -n %libname
+%description -n %{libname}
 This is the base library of the Galago desktop presence framework.
 
-%package -n %develname
-Group: Development/C
-Summary: Base library of Galago - headers
-Requires: %libname = %version-%release
-Provides: %name-devel = %version-%release
-Provides: galago-devel = %version-%release
-Obsoletes: %mklibname galago 3 -d
+%package -n %{devname}
+Summary:	Base library of Galago - headers
+Group:		Development/C
+Requires:	%{libname} = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
 
-%description -n %develname
+%description -n %{devname}
 This is the base library of the Galago desktop presence framework.
 
 %prep
@@ -47,21 +44,20 @@ This is the base library of the Galago desktop presence framework.
 %make
 
 %install
-rm -rf %{buildroot} %name.lang
 %makeinstall_std MKINSTALLDIRS=`pwd`/mkinstalldirs
-rm -rf %buildroot%_datadir/autopackage
-%find_lang %name
+rm -rf %buildroot%{_datadir}/autopackage
+%find_lang %{name}
 
-%files -f %name.lang
+%files -f %{name}.lang
 %doc AUTHORS NEWS
 
-%files -n %libname
-%_libdir/lib*.so.%{major}*
+%files -n %{libname}
+%{_libdir}/libgalago.so.%{major}*
 
-%files -n %develname
+%files -n %{devname}
 %doc ChangeLog 
-%_libdir/lib*.so
-%_libdir/pkgconfig/libgalago.pc
-%_includedir/%name/
-%_datadir/gtk-doc/html/libgalago
+%{_libdir}/lib*.so
+%{_libdir}/pkgconfig/libgalago.pc
+%{_includedir}/%{name}/
+%{_datadir}/gtk-doc/html/libgalago
 
