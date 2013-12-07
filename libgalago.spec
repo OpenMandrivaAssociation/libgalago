@@ -5,7 +5,7 @@
 Summary:	Base library of Galago 
 Name:		libgalago
 Version:	0.5.2
-Release:	3
+Release:	4
 License:	LGPLv2
 Group:		System/Libraries
 Url:		http://www.galago-project.org/
