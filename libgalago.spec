@@ -1,6 +1,7 @@
 %define major	3
 %define libname	%mklibname galago %{major}
 %define devname	%mklibname galago -d
+%define _disable_rebuild_configure 1
 
 Summary:	Base library of Galago 
 Name:		libgalago
