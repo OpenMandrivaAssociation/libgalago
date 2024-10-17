@@ -10,7 +10,7 @@ Version:	0.5.2
 Release:	11
 License:	LGPLv2
 Group:		System/Libraries
-Url:		http://www.galago-project.org/
+Url:		https://www.galago-project.org/
 Source0:	http://www.galago-project.org/files/releases/source/libgalago/%{name}-%{version}.tar.bz2
 BuildRequires:	gtk-doc
 BuildRequires:	pkgconfig(dbus-glib-1)
