@@ -12,6 +12,11 @@ License:	LGPLv2
 Group:		System/Libraries
 Url:		https://www.galago-project.org/
 Source0:	http://www.galago-project.org/files/releases/source/libgalago/%{name}-%{version}.tar.bz2
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	gtk-doc
 BuildRequires:	pkgconfig(dbus-glib-1)
 
